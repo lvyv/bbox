@@ -3,7 +3,7 @@
     "displayName": "bbox",
     "description": "Embedded programming extension at vehicle terminal.",
     "icon": "bbox.jpg",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "awen",
     "repository": {
 		"type": "git",
