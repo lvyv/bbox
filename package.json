@@ -5,6 +5,10 @@
     "icon": "bbox.jpg",
     "version": "0.0.1",
     "publisher": "awen",
+    "repository": {
+		"type": "git",
+		"url": "https://github.com/lvyv/bbox.git"
+	},
     "engines": {
         "vscode": "^1.21.0"
     },
