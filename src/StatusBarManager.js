@@ -1,10 +1,10 @@
 "use strict";
 
 let vscode = require("vscode"),
-	{ debugMode } = require('./Log');
+	{ debugMode } = require('../Log');
 
-const MAIN_TITLE = 'CodingTracker';
-const DEBUG_TITLE = 'CodingTracker(Debug)';
+const MAIN_TITLE = 'BBox';
+const DEBUG_TITLE = 'BBox(Debug)';
 
 let statusBarItem;// = vscode.window.createStatusBarItem();
 let uploadQueue = [],
@@ -47,11 +47,12 @@ function _updateText() {
 	
 	let text = debugMode
 		? `$(bug) ${mainStatus || DEBUG_TITLE}`
-		: `$(dashboard) ${mainStatus || MAIN_TITLE}`;
+		: `$(location) ${mainStatus || MAIN_TITLE}`;
 	if (isLocalServerOn) text += ' $(database) Local';
 	text += uploadQueue.length ? ('$(chevron-left) ' + uploadQueue.length) : '';
 	statusBarItem.text = text;
 	statusBarItem.show();
+	console.log("status update!");
 }
 function _updateTooltip() {
 	if (!statusBarItem) return;
