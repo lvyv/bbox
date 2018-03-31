@@ -1,30 +1,39 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
+let ssh2_ = require("./src/ssh2promise").SSH2UTILS;
+let fs_ = require("fs");
+let path_ = require("path");
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+let { commands, workspace, window, extensions, TextDocument, Uri, StatusBarAlignment, StatusBarItem } = vscode;
+let statusBarItem_ = null;
+
+function uploadApp(args) {
+    workspace.getConfiguration('jsconfig').get('exclude');
+    console.log(args);
+}
+function restartApp(args) {
+    console.log(args);
+}
+
 function activate(context) {
+    // let disposable = vscode.commands.registerCommand('extension.sayHello', function () {
+    //     vscode.window.showInformationMessage('Hello World!');
+    //     statusBarItem_.text = 'BBox: Hello World!';
+    // });
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "bbox" is now active!');
+    // workspace.onDidSaveTextDocument(function (event) {
+    //     statusBarItem_.text = "saved!"
+    // });
 
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.sayHello', function () {
-        // The code you place here will be executed every time your command is executed
+    // if (statusBarItem_ == null)
+    //     statusBarItem_ = window.createStatusBarItem(StatusBarAlignment.Left);
+    // statusBarItem_.text = "BBox:";
+    // statusBarItem_.show();
 
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
-    });
+    context.subscriptions.push(commands.registerCommand('et.uploadApp', uploadApp));
+    context.subscriptions.push(commands.registerCommand('et.restartApp', restartApp));
 
-    context.subscriptions.push(disposable);
 }
 exports.activate = activate;
-
-// this method is called when your extension is deactivated
 function deactivate() {
 }
 exports.deactivate = deactivate;

@@ -3,12 +3,12 @@
     "displayName": "bbox",
     "description": "Embedded programming extension at vehicle terminal.",
     "icon": "bbox.jpg",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "awen",
     "repository": {
-		"type": "git",
-		"url": "https://github.com/lvyv/bbox.git"
-	},
+        "type": "git",
+        "url": "https://github.com/lvyv/bbox.git"
+    },
     "engines": {
         "vscode": "^1.21.0"
     },
@@ -16,14 +16,57 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:et.uploadApp",
+        "onCommand:et.restartApp"
     ],
     "main": "./extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
-        }]
+        "commands": [
+            {
+                "command": "et.uploadApp",
+                "title": "upload app",
+                "category": "et"
+            },
+            {
+                "command": "et.restartApp",
+                "title": "restart app",
+                "category": "et"
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "et.uploadApp"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "command": "et.uploadApp"
+                },
+                {
+                    "command": "et.restartApp"
+                }
+            ]
+        },
+        "configuration": {
+            "type": "object",
+            "title": "bbox configuration",
+            "properties": {
+                "typescript.useCodeSnippetsOnMethodSuggest": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Complete functions with their parameter signature."
+                },
+                "typescript.tsdk": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
+                }
+            }
+        }
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
