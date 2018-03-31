@@ -2,8 +2,8 @@
     "name": "bbox",
     "displayName": "bbox",
     "description": "Embedded programming extension at vehicle terminal.",
-    "icon": "bbox.jpg",
-    "version": "0.0.3",
+    "icon": "bbox.png",
+    "version": "0.0.4",
     "publisher": "awen",
     "repository": {
         "type": "git",
@@ -52,18 +52,45 @@
             "type": "object",
             "title": "bbox configuration",
             "properties": {
-                "typescript.useCodeSnippetsOnMethodSuggest": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Complete functions with their parameter signature."
+                "et.sshHost": {
+                    "type": "string",
+                    "default": "192.168.75.130",
+                    "description": "Teminal's IP address."
                 },
-                "typescript.tsdk": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "default": null,
-                    "description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
+                "et.sshPort": {
+                    "type": "number",
+                    "default": 22,
+                    "description": "Teminal's ssh svr port."
+                },
+                "codingTracker.uploadToken": {
+                    "type": "string",
+                    "default": "",
+                    "description": "%cfg.uploadToken%"
+                },
+                "codingTracker.serverURL": {
+                    "type": "string",
+                    "default": "http://127.0.0.1:10345",
+                    "description": "%cfg.serverURL%"
+                },
+                "codingTracker.computerId": {
+                    "type": "string",
+                    "default": "",
+                    "description": "%cfg.computerId%"
+                },
+                "codingTracker.localServerMode": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "%cfg.localServerMode%"
+                },
+                "codingTracker.moreThinkingTime": {
+                    "type": "number",
+                    "default": 0,
+                    "description": "%cfg.moreThinkingTime%"
+                },
+                "codingTracker.showStatus": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "%cfg.showStatus%"
                 }
             }
         }
